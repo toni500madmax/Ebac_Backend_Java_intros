@@ -9,6 +9,8 @@ public class App {
         double media = somaNotas / 4;
         if (media >= 7) {
             return "aprovado";
+        } else if (media >= 5 || media < 7) {
+            return "de recuperação";
         } else {
             return "reprovado";
         }
