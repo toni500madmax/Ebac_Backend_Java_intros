@@ -1,7 +1,9 @@
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
         scan.useLocale(Locale.ENGLISH);
@@ -13,18 +15,18 @@ public class App {
             // Método de adicionar apenas nome das pessoas.
             System.out.print("Digite quantas pessoas serão adicionadas: ");
             int qtdPessoas = scan.nextInt();
-            String[] listaPessoasporNome = new String[qtdPessoas + 1];
+            ListaPessoas listaPessoasporNome = new ListaPessoas();
             scan.nextLine();
             for (int i = 0; i < qtdPessoas; i++) {
                 System.out.print("Digite apenas o nome da pessoa: ");
-                String novaPessoa = scan.nextLine();
-                listaPessoasporNome[i] = novaPessoa;
+                String nomePessoa = scan.nextLine();
+                Pessoa novaPessoa = new Pessoa(nomePessoa);
+                listaPessoasporNome.adicionarNomePessoa(novaPessoa);
             }
+            // Collections.sort(listaPessoasporNome);
             System.out.println("Lista de nomes: ");
-            for (int i = 0; i < listaPessoasporNome.length - 1; i++) {
-                String printLista = String.format("%dº %s;", i + 1, listaPessoasporNome[i]);
-                System.out.println(printLista);
-            }
+            System.out.println(listaPessoasporNome);
+
         } else if (operacao == 2) {
             // Método de adicionar pessoas com idade e gênero.
             ListaPessoas listaPessoasporInformacoes = new ListaPessoas();

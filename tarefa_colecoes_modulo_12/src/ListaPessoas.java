@@ -14,6 +14,10 @@ public class ListaPessoas {
         this.pessoa.add(pessoa);
     }
 
+    public void adicionarNomePessoa(Pessoa novaPessoa) {
+        this.pessoa.add(novaPessoa);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
