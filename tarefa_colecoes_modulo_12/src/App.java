@@ -2,40 +2,48 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
-
-    // Todo: mostrar nomes na tela filtrados por gênero.
-
-    // System.out.println("Digite o gênero (1) Masculino, (2) Feminino, (3)
-    // Retardados para filtrar pessoas: ");
-    // int generoFilter = scan.nextInt();
-    // List<Pessoa> pessoasFiltradas = listaPessoas.getPessoa().stream()
-    // .filter(p -> p.getSexo() == Genero.values()[generoFilter - 1])
-    // .collect(Collectors.toList());
-
     public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
         scan.useLocale(Locale.ENGLISH);
 
-        System.out.print("Digite quantas pessoas serão adicionadas: ");
-        int qtdPessoas = scan.nextInt();
-        ListaPessoas listaPessoas = new ListaPessoas();
-        scan.nextLine();
-        for (int i = 0; i < qtdPessoas; i++) {
-            System.out.print("Digite o nome da pessoa: ");
-            String nome = scan.nextLine();
-            System.out.print("Digite a idade: ");
-            int idade = scan.nextInt();
-            System.out.print("Digite o sexo: [1] Masculino, [2] Feminino");
-            int sexo = scan.nextInt();
-            Genero generoPessoa = sexo == 1 ? Genero.MASCULINO : Genero.FEMININO;
-            Pessoa pessoaCompleta = new Pessoa(nome, generoPessoa, idade);
+        System.out.print(
+                "\nAdicionar lista de: [1] Nome apenas. [2] Informações de pessoa.\nDigite o número da escolha:");
+        int operacao = scan.nextInt();
+        if (operacao == 1) {
+            // Método de adicionar apenas nome das pessoas.
+            System.out.print("Digite quantas pessoas serão adicionadas: ");
+            int qtdPessoas = scan.nextInt();
+            String[] listaPessoasporNome = new String[qtdPessoas + 1];
             scan.nextLine();
-            listaPessoas.adicionarPessoa(pessoaCompleta);
-            System.out.println(qtdPessoas > 1 ? "Adicionado com sucesso;"
-                    : i == qtdPessoas ? "FInalizando lista de pessoas..." : "...");
+            for (int i = 0; i < qtdPessoas; i++) {
+                System.out.print("Digite apenas o nome da pessoa: ");
+                String novaPessoa = scan.nextLine();
+                listaPessoasporNome[i] = novaPessoa;
+            }
+            System.out.println("Lista de nomes: ");
+            for (int i = 0; i < listaPessoasporNome.length - 1; i++) {
+                String printLista = String.format("%dº %s;", i + 1, listaPessoasporNome[i]);
+                System.out.println(printLista);
+            }
+        } else if (operacao == 2) {
+            // Método de adicionar pessoas com idade e gênero.
+            ListaPessoas listaPessoasporInformacoes = new ListaPessoas();
+            System.out.print("Digite quantas pessoas serão adicionadas: ");
+            int qtdPessoas = scan.nextInt();
+            scan.nextLine();
+            for (int i = 0; i < qtdPessoas; i++) {
+                System.out.print(
+                        "Digite o nome da pessoa, gênero e idade, nesta ordem, usando uma vírgula sem espaços: ");
+                String infoNovaPessoa = scan.nextLine();
+                String[] pessoaCompleta = infoNovaPessoa.split(",");
+                String nomePessoa = pessoaCompleta[0];
+                Genero generoPessoa = Genero.valueOf(pessoaCompleta[1].toUpperCase());
+                int idadePessoa = Integer.parseInt(pessoaCompleta[2]);
+                Pessoa novaPessoa = new Pessoa(nomePessoa, generoPessoa, idadePessoa);
+                listaPessoasporInformacoes.adicionarPessoa(novaPessoa);
+            }
+            System.out.println(listaPessoasporInformacoes.toString());
         }
-
-        System.out.println(listaPessoas);
 
         scan.close();
     }

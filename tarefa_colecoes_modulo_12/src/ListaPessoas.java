@@ -17,9 +17,10 @@ public class ListaPessoas {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        Collections.sort(pessoa);
         sb.append("Lista de pessoas: \n");
         for (int i = 0; i < pessoa.size(); i++) {
-            sb.append("\t" + i + 1 + "ª pessoa: " + pessoa.get(i) + "\n");
+            sb.append("\t" + (i + 1) + "ª pessoa: \n\t" + pessoa.get(i) + "\n");
         }
         return sb.toString();
     }

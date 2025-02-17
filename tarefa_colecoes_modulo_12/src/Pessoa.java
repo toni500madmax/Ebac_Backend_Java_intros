@@ -1,4 +1,4 @@
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
     private String nome;
     private Genero sexo;
     private Integer idade;
@@ -32,10 +32,15 @@ public class Pessoa {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Nome: "
-                + this.nome + ", idade:"
+                + this.nome + ", idade: "
                 + this.idade
                 + ", gênero: "
                 + this.sexo + ";");
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Pessoa p) {
+        return this.nome.compareTo(p.getNome());
     }
 }
