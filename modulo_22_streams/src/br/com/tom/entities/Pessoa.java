@@ -1,6 +1,6 @@
-package entities;
+package br.com.tom.entities;
 
-import enumerators.Genero;
+import br.com.tom.enumerators.Genero;
 
 import java.util.List;
 import java.util.Objects;

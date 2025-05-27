@@ -1,5 +1,7 @@
-import entities.Pessoa;
-import enumerators.Genero;
+package br.com.tom;
+
+import br.com.tom.entities.Pessoa;
+import br.com.tom.enumerators.Genero;
 
 import java.util.List;
 import java.util.stream.Stream;
