@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6207f9eb-a6bc-4840-8ce9-0cd313f77ab3" name="Changes" comment="" />
+    <list default="true" id="6207f9eb-a6bc-4840-8ce9-0cd313f77ab3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,6 +122,9 @@
     <servers />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/modulo_24_TDD$ContratoServiceTest.ic" NAME="ContratoServiceTest Coverage Results" MODIFIED="1748443481106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>br.com.rpires.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/ExemplosMod23e24$TesteClienteTest_testeClasseCliente.ic" NAME="TesteClienteTest.testeClasseCliente Coverage Results" MODIFIED="1748373773735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>br.com.rpires.*</FILTER>
     </SUITE>
